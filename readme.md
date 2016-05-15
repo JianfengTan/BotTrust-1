@@ -69,3 +69,10 @@ Input               Output
 
 * Small [A-small-practice.in](A-small-practice.in)
 * Large [A-large-practice.in](A-large-practice.in)
+
+
+## Run Project using Terminal
+```sh
+javac BotTrust.java
+java BotTrust < A-small-practice.in > A-small-practice.out
+```
