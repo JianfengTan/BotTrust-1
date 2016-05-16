@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bottrust by sunil523</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Bottrust</h1>
+      <h2 class="project-tagline">Google Code Jam - BotTrust Problem</h2>
+      <a href="https://github.com/sunil523/BotTrust" class="btn">View on GitHub</a>
+      <a href="https://github.com/sunil523/BotTrust/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/sunil523/BotTrust/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="google-code-jam-bot-trust" class="anchor" href="#google-code-jam-bot-trust" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Google Code Jam: Bot Trust</h1>
+
+<p><a href="https://code.google.com/codejam/contest/975485/dashboard">Submission/Project Link</a></p>
+
+<h2>
+<a id="problem" class="anchor" href="#problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Problem</h2>
+
+<p>Blue and Orange are friendly robots. An evil computer mastermind has locked them up in separate hallways to test them, and then possibly give them cake.</p>
+
+<p>Each hallway contains 100 buttons labeled with the positive integers <code>{1, 2, ..., 100}</code>. Button <code>k</code> is always <code>k</code> meters from the start of the hallway, and the robots both begin at button 1. Over the period of one second, a robot can walk one meter in either direction, or it can press the button at its position once, or it can stay at its position and not press the button. To complete the test, the robots need to push a certain sequence of buttons in a certain order. Both robots know the full sequence in advance. How fast can they complete it?</p>
+
+<p>For example, let's consider the following button sequence:</p>
+
+<pre><code>  O 2, B 1, B 2, O 4
+</code></pre>
+
+<p>Here, <code>O 2</code> means button 2 in Orange's hallway, <code>B 1</code> means button 1 in Blue's hallway, and so on. The robots can push this sequence of buttons in 6 seconds using the strategy shown below:</p>
+
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Orange</th>
+<th>Blue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Move to button 2</td>
+<td>Stay at button 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Push button 2</td>
+<td>Stay at button 1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Move to button 3</td>
+<td>Push button 1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Move to button 4</td>
+<td>Move to button 2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Stay at button 4</td>
+<td>Push button 2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Push button 4</td>
+<td>Stay at button 2</td>
+</tr>
+</tbody>
+</table>
+
+<p>Note that Blue has to wait until Orange has completely finished pushing <code>O 2</code> before it can start pushing <code>B 1</code>.</p>
+
+<h2>
+<a id="input" class="anchor" href="#input" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Input</h2>
+
+<p>The first line of the input gives the number of test cases, <code>T</code>. <code>T</code> test cases follow.</p>
+
+<p>Each test case consists of a single line beginning with a positive integer <code>N</code>, representing the number of buttons that need to be pressed. This is followed by <code>N</code> terms of the form "<code>Ri Pi</code>" where <code>Ri</code> is a robot color (always 'O' or 'B'), and <code>Pi</code> is a button position.</p>
+
+<h2>
+<a id="output" class="anchor" href="#output" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Output</h2>
+
+<p>For each test case, output one line containing "Case #x: y", where <code>x</code> is the case number (starting from 1) and <code>y</code> is the minimum number of seconds required for the robots to push the given buttons, in order.</p>
+
+<p><strong>Limits</strong></p>
+
+<p>1 ≤ <strong>Pi</strong> ≤ 100 for all i.</p>
+
+<p><strong>Small dataset</strong></p>
+
+<p>1 ≤ <strong>T</strong> ≤ 20.
+1 ≤ <strong>N</strong> ≤ 10.</p>
+
+<p><strong>Large dataset</strong></p>
+
+<p>1 ≤ <strong>T</strong> ≤ 100.
+1 ≤ <strong>N</strong> ≤ 100.</p>
+
+<h2>
+<a id="sample" class="anchor" href="#sample" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sample</h2>
+
+<pre><code>Input               Output
+3
+4 O 2 B 1 B 2 O 4   Case #1: 6
+3 O 5 O 8 B 100     Case #2: 100
+2 B 2 B 1           Case #3: 4
+</code></pre>
+
+<h2>
+<a id="solution" class="anchor" href="#solution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution</h2>
+
+<p><img src="Project2BotTrust.png" alt="Bot Trust GUI"></p>
+
+<p><strong>Files</strong></p>
+
+<ul>
+<li><a href="BotTrust.java">BotTrust.java</a></li>
+<li><a href="core/Config.java">core/Config.java</a></li>
+<li><a href="core/Bot.java">core/Bot.java</a></li>
+<li><a href="core/Gui.java">core/Gui.java</a></li>
+<li><a href="core/CodeJam.java">core/CodeJam.java</a></li>
+</ul>
+
+<p><strong>Dataset</strong></p>
+
+<ul>
+<li>Small <a href="A-small-practice.in">A-small-practice.in</a>
+</li>
+<li>Large <a href="A-large-practice.in">A-large-practice.in</a>
+</li>
+</ul>
+
+<h2>
+<a id="run-project-using-terminal" class="anchor" href="#run-project-using-terminal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run Project using Terminal</h2>
+
+<div class="highlight highlight-source-shell"><pre>javac BotTrust.java
+java BotTrust <span class="pl-k">&lt;</span> A-small-practice.<span class="pl-k">in</span> <span class="pl-k">&gt;</span> A-small-practice.out</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/sunil523/BotTrust">Bottrust</a> is maintained by <a href="https://github.com/sunil523">sunil523</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
