@@ -62,7 +62,7 @@ Input               Output
 * [BotTrust.java](BotTrust.java)
 * [core/Config.java](core/Config.java)
 * [core/Bot.java](core/Bot.java)
-* [core/MultipleActors.java](core/MultipleActors.java)
+* [core/Gui.java](core/Gui.java)
 * [core/CodeJam.java](core/CodeJam.java)
 
 **Dataset**

@@ -71,6 +71,4 @@ public class Bot{
     this.location = Config.MIN_LOCATION;
     this.time     = 0;
   }
-
-
 }
